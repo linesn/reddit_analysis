@@ -90,7 +90,7 @@
 %% The abstract is a short summary of the work to be presented in the
 %% article.
 \begin{abstract}
-  Distance reading and text mining applications have suggested the need for more language-specific techniques
+  Distance reading and text mining applications have suggested the need for more language-agnostic techniques
   that can be employed in text analysis. We propose the application of vocabulary entropy to characterize groups of authors,
   and use this approach to analyze and contrast US political discussions carried out on the social media platform
   Reddit. We show that normalized sample mean vocabulary entropy of a community corresponds well with education and literacy
@@ -153,7 +153,7 @@ As the amount of text-based media has ballooned in recent decades, it has
 become clear that the ability to characterize and discuss text corpora at an
 abstract level is essential. In the literary community this arose as the
 concept of distance reading, in which literary analysis is pursued without
-humans actually reading the books \cite{moretti2000conjectures}. In the
+using human judges to actually read books \cite{moretti2000conjectures}. In the
 statistics and data science communities we find this problem addressed by
 various text mining and authorship verification techniques. The popularity
 of topic modeling and other language-agnostic techniques suggests that there
@@ -184,13 +184,13 @@ on Reddit.
 
 To the best of our knowledge, this is the first discussion published on the
 subject of author group characterization using vocabulary entropy. However,
-vocabulary has long been a subject of interest for similar studies.
+vocabulary has long been a subject of interest in similar studies.
 Authorship verification in academic and court evidence has often relied on
 vocabulary analysis, including measures of vocabulary richness \cite%
 {chaski2001empiricaleo}. Some of Claude Shannon's original work in entropy
 was motivated by a study of variety in English character use \cite%
-{shannon1951prediction}. In 2000, the authors of \cite{dale2000handbook}
-discussed several measures of vocabulary richness, in the context of author
+{shannon1951prediction}. In 2000 the authors of \cite{dale2000handbook}
+discussed several measures of vocabulary richness in the context of author
 identification, including normalized Shannon entropy. In 2018 an identical
 approach for measuring a single author's vocabulary richness was
 independently proposed in \cite{rajput2018novel}, and called the \emph{%
@@ -203,7 +203,7 @@ related to the subject.
 
 \subsection{ Vocabulary quotients}
 
-Let $n$ be the length in words of a text sample in words composed using $V$
+Let $n$ be the length in words of a text sample composed using $V$
 distinct words $X_{1},X_{2},...,X_{V}$. These words's frequencies are
 observed and used to write the vocabulary's empirical probability
 distribution for the random variable for word choice, $X$. The Shannon
@@ -302,8 +302,8 @@ The confidence intervals for population means of the subreddit groups, given
 our samples, are shown in Figure ~\ref{fig:teaser}. This confirms our expectation that
 the casual conversation of graduate students exhibits higher vocabulary
 entropy than that of high school students or English learners in similar
-forums (note that we do not use any professional writing, such as essays or
-dissertations, but instead use only Reddit-style conversation). The
+forums (note that we do not introduce any professional or formal writing, such as essays or
+dissertations, but instead restrict our review to Reddit-style conversations). The
 distribution of high-school speech is extremely broad, suggesting that
 students with high vocabulary entropy show that potential before college
 education. 
@@ -313,13 +313,14 @@ vocabulary entropy than any of the above student groups, suggesting more
 linguistic sophistication in the discussion content. Individual subreddits
 vary, of course, with some closer to high-school level writing and others
 significantly higher than graduate school level writing. There are several
-facts that contribute to the unusually high scores. The highest performing
+environmental facts that may contribute to the unusually high scores.
+The highest performing
 subreddit, worldnews, is mainly devoted to linking and quoting news
-articles, rather than posting original content, so it is not surprising that
-the vocabulary entropy is similar to that of professional writing. In
+articles rather than posting original content, so it is not surprising that
+its vocabulary entropy is similar to that of professional writing. In
 contrast, politics2 is a subreddit frequented by users posting from a
-variety of world regions and contains much more original, unprofessional
-content, which explains its extremely low vocabulary entropy. 
+variety of world regions and contains much more original, informall
+content, which may explain its extremely low vocabulary entropy. 
 
 \subsection{Future Work}
 
@@ -332,8 +333,8 @@ unofficial bots that create posts and comments, and these may well be
 artificially boosting the group's mean quotient. We might also control for
 quotations and group-authored content, since this is known to exhibit higher
 vocabulary entropy. Improvements could also be made in the text cleaning
-approach such as a dictionary lookup, since we found some hyperlinks and
-emojis slipped through the casual tokenizer. Despite this limitation, the
+approach such as requiring a dictionary lookup, since we found some hyperlinks and
+emojis slipped through the casual tokenizer. Despite this fault, the
 highest scoring posts and comments in our data were found to genuinely
 exhibit diverse vocabulary and more professional writing. 
 
@@ -342,11 +343,13 @@ posts hosted by the platforms. Because the length filtering could not occur
 within PRAW's scraping routines, over 87\% of the collected posts and
 comments collected had to be discarded. This sampling bias toward unusually
 long posts means that our analysis is not actually representative of the
-whole Reddit community. An important question to investigate is just how low
+whole Reddit community. There could easily be entirely different behavior among
+the authors of shorter comments and posts. Another important question to
+investigate is just how low
 the sample size $n$ can be dropped before the vocabulary quotient is
 uninformative. 
 
-Since Reddit is principally home for informal writing, it would be
+Since Reddit is principally a home for informal writing, it would be
 informative to contrast these results with samples from more formal writing
 such as student essays, LinkedIn posts, or school blogs. How much an
 individual or group vary their vocabulary entropy when switching from
@@ -372,7 +375,8 @@ paper, including that used for data collection, is provided at
 %% identification of the section in the article metadata, and the
 %% consistent spelling of the heading.
 \begin{acks}
-This work was done under the instruction of Dr. McCulloh during a course on Social Media Analysis at JHU.
+  This work was done under the instruction of Dr. McCulloh during a course on Social Media Analysis at JHU.
+  We would like to thank Google Colaboratory and GitHub for the free resources used to perform this research.
 \end{acks}
 
 %%
